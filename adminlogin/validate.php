@@ -5,9 +5,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     include 'partials/_connection.php';
     $conn = mysqli_connect($server, $username, $password, $database);
     $username = $_POST["username"];
-    $_username = mysqli_real_escape_string($conn, $username);
+ // $_username = mysqli_real_escape_string($conn, $username);
     $password = $_POST["password"];
-    $sql = "Select * from adminlogin where username= '$_username' AND password='$password'" ;
+    $sql = "Select * from adminlogin where username= '$username' AND password='$password'" ;
     $result = mysqli_query($conn, $sql);
     $num = mysqli_num_rows($result);
     if ($num == 1){
